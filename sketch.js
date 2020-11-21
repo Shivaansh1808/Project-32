@@ -152,9 +152,9 @@ function draw() {
   blocks9.score();
 }
 function mouseDragged(){
-  Events.on(engine, 'afterUpdate', function(){
+  //Events.on(engine, 'afterUpdate', function(){
   Matter.Body.setPosition(this.polygon,{x:mouseX,y:mouseY});
-  })
+  //})
 }
 function mouseReleased(){
   engine.events = {}
