@@ -2,6 +2,7 @@ const Engine = Matter.Engine;
 const World = Matter.World;
 const Bodies = Matter.Bodies;
 const Constraint = Matter.Constraint;
+const Events = Matter.Events;
 
 var engine, world;
 var holder,polygon,ground;
@@ -151,9 +152,12 @@ function draw() {
   blocks9.score();
 }
 function mouseDragged(){
+  Events.on(engine, 'afterUpdate', function(){
   Matter.Body.setPosition(this.polygon,{x:mouseX,y:mouseY});
+  })
 }
 function mouseReleased(){
+  engine.events = {}
   slingShot.fly();
 }
 function keyPressed(){
